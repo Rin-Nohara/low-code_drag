@@ -25,7 +25,8 @@ export default function useMouse(attr: IUseMouseAttr): IReturn {
         y: 0
     });
 
-    function mouseHandle (event: MouseEvent): void {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    function mouseHandle (event: MouseEvent) {
         setScopedState({
             x: event.clientX,
             y: event.clientY,
@@ -39,10 +40,9 @@ export default function useMouse(attr: IUseMouseAttr): IReturn {
         const targetDom: HTMLElement | Window = bindDom ? bindDom : window;
         targetDom.addEventListener(mouseEventName, mouseHandle as EventListener)
         return () => {
-            console.log('unmount mouse ', bindDom)
             targetDom.removeEventListener(mouseEventName, mouseHandle as EventListener)
         }
-    }, [mouseEventName, bindDom])
+    }, [mouseEventName, bindDom, mouseHandle])
 
     return scopedState as IReturn;
 }
