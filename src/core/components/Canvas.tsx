@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect, useRef, LegacyRef } from 'react';
 
 import Style from '../styles/canvas.module.scss'
 import bgImg from '../../assets/background.jpg'
@@ -6,15 +6,16 @@ import bgImg from '../../assets/background.jpg'
 import useMouse from "../hooks/useMouse";
 
 const Canvas: React.FC = () => {
+    const targetDom = useRef<HTMLDivElement>()
 
-    const { x, y } = useMouse({ mouseEventName: 'mousedown' })
+    const { x, y } = useMouse({ mouseEventName: 'mouseup', bindDom: targetDom.current })
 
     useEffect(() => {
         console.log(x, y)
     }, [x, y])
 
     return <>
-        <div className={`${Style.container} ${Style.flexOne}`} style={{backgroundImage: `url(${bgImg})`}}/>
+        <div ref={targetDom as LegacyRef<HTMLDivElement>} className={`${Style.container} ${Style.flexOne}`} style={{backgroundImage: `url(${bgImg})`}}/>
     </>;
 };
 
