@@ -1,12 +1,24 @@
-import React from 'react';
-import Style from '../styles/actionList.module.scss'
+import React, { useMemo } from 'react';
+import Style from '../styles/actionList.module.scss';
+import useToggle from '../hooks/useToggle'
 
 const ActionList: React.FC = () => {
+
+    const { toggleState, toggle } = useToggle(true);
+
+    const btnInfo = useMemo(() => {
+        return toggleState ? {
+            btnText: '关闭',
+            btnSymbol: '>'
+        } : {
+            btnText: '打开',
+            btnSymbol: '<'
+        }
+    }, [toggleState])
+
     return <div className={`${Style.wrapper} `}>
-        {/* todo text or title from open status */}
-        <button className={`${Style.button}`} title={'关闭'}> {'>'} </button>
-        {/* todo open or close from redux */}
-        <div className={`${Style.base} ${Style.shadow} ${Style.open}`}></div>
+        <button className={`${Style.button}`} title={btnInfo.btnText} onClick={toggle}> {btnInfo.btnSymbol} </button>
+        <div className={`${Style.base} ${Style.shadow} ${toggleState ? Style.open : Style.close}`}/>
     </div>
 };
 
