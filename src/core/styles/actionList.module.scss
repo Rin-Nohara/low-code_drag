@@ -1,0 +1,40 @@
+.wrapper {
+  height: 100%;
+  position: relative;
+  margin-left: 3px;
+}
+
+.base {
+  height: 100%;
+  position: relative;
+}
+
+.open {
+  width: 300px;
+}
+
+.close {
+  width: 0;
+}
+
+.shadow {
+  box-shadow: -3px 0 3px 0 #bbb;
+}
+
+.button {
+  position: absolute;
+  top: 0;
+  left: -20px; // 标准为 20 由于 actionList 与 canvas 之间有 3 px 间距
+  width: 20px;
+  height: 30px;
+  line-height: 30px;
+
+  background-color: #fff;
+  outline: none;
+  border: 1px solid #bbb;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  z-index: 99;
+
+  cursor: pointer;
+}

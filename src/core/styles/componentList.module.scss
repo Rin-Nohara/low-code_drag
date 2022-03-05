@@ -1,0 +1,14 @@
+.base {
+  width: 300px;
+  height: 100%;
+
+  margin-right: 3px;
+
+  box-sizing: border-box;
+
+  z-index: 99;
+}
+
+.shadow {
+  box-shadow: 3px 0 3px 0 #bbb;
+}
