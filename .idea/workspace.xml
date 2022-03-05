@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4caec74-f1f1-4485-af57-f19644f48439" name="Changes" comment="feat: 布局">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/components/Canvas.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/components/Canvas.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/hooks/useMouse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/hooks/useMouse.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1646481185773</updated>
       <workItem from="1646481190004" duration="406000" />
-      <workItem from="1646481614208" duration="15796000" />
+      <workItem from="1646481614208" duration="16340000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 布局">
       <created>1646489259045</created>
