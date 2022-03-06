@@ -23,7 +23,8 @@ const Canvas: React.FC = () => {
                 理想状态：动态计算左侧宽度 或者 基于 canvas 区域 鼠标的 x、y
              */
             const computedX = x <= 0 ? 0 : x - 300
-            jsonToDom({ canvasContainer: targetDom.current, position: { x: computedX, y } })
+            const renderDom = jsonToDom({ canvasContainer: targetDom.current, position: { x: computedX, y } })
+            targetDom.current?.appendChild(renderDom)
         },
     });
 
