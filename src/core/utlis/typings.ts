@@ -6,5 +6,6 @@ export type ComponentJsonEventType<T = undefined> = 'click' | 'change' | 'select
 
 export type componentJsonType = {
     type: ComponentJsonElementType,
-    event: ComponentJsonEventType
+    event?: ComponentJsonEventType,
+    style?: any
 }

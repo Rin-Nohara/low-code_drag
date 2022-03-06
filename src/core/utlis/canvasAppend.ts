@@ -1,6 +1,5 @@
-import {createElement} from 'react';
-import * as ReactDOM from "react-dom";
 import {componentJsonType} from './typings'
+import vdomToDom from "./vdomToDom";
 
 export interface IProps {
     // todo componentJson 应为 required
@@ -40,19 +39,16 @@ const jsonToDom = (props: IProps): HTMLElement => {
             2. 添加 componentId 和 renderId，优化性能
             3. 支持 custom 组件
      */
-    // @ts-ignore
-    return ReactDOM.render(createElement(
-        'h1',
-        {
-            // 渲染时必须的三个样式
+    return vdomToDom({
+        componentJson: {
+            type: 'h1',
             style: {
                 position: 'absolute',
-                top: position.y,
-                left: position.x
+                top: position.y + 'px',
+                left: position.x + 'px'
             }
         },
-        'hello'
-    ), canvasContainer)
+    })
 }
 
 export default jsonToDom;
