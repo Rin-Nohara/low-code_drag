@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useSelector, useDispatch } from 'react-redux'
 
-import { increment, decrement } from '../store/reducer'
+import { increment, decrement, incrementByAmount } from '../store/reducer/couterReducer'
 
 const Testing: React.FC = () => {
 
@@ -24,6 +24,12 @@ const Testing: React.FC = () => {
                     onClick={() => dispatch(decrement())}
                 >
                     Decrement
+                </button>
+
+                <button
+                    onClick={() => dispatch(incrementByAmount(10))}
+                >
+                    too
                 </button>
             </div>
         </div>
