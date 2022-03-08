@@ -9,8 +9,13 @@ import jsonToDom from "../utlis/canvasAppend";
 
 const Canvas: React.FC = () => {
     const targetDom = useRef<HTMLDivElement>()
+    const { x: mouseDownX, y: mouseDownY } = useMouse({ mouseEventName: 'mousedown', bindDom: targetDom.current })
+    const { x: mouseMoveX, y: mouseMoveY } = useMouse({ mouseEventName: 'mousemove', bindDom: targetDom.current, delayTime: 1000 })
+    const { x: mouseUpX, y: mouseUpY } = useMouse({ mouseEventName: 'mouseup', bindDom: targetDom.current })
 
-    const { x, y } = useMouse({ mouseEventName: 'mouseup', bindDom: targetDom.current })
+    useEffect(() => {
+        console.log(mouseDownX, mouseDownY, mouseMoveX, mouseMoveY, mouseUpX, mouseUpY)
+    }, [mouseDownX, mouseDownY, mouseMoveX, mouseMoveY, mouseUpX, mouseUpY])
 
     useDrop(targetDom, {
         onDom: (content: string, e) => {
@@ -27,10 +32,6 @@ const Canvas: React.FC = () => {
             targetDom.current?.appendChild(renderDom)
         },
     });
-
-    useEffect(() => {
-        console.log(x, y)
-    }, [x, y])
 
     return <>
         <div ref={targetDom as LegacyRef<HTMLDivElement>} className={`${Style.container} ${Style.flexOne}`} style={{backgroundImage: `url(${bgImg})`}}/>

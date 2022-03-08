@@ -41,11 +41,13 @@ export default function jsonToDom (props: IProps): HTMLElement {
      */
     return vdomToDom({
         componentJson: {
-            type: 'h1',
-            style: {
-                position: 'absolute',
-                top: position.y + 'px',
-                left: position.x + 'px'
+            type: 'button',
+            props: {
+                style: {
+                    position: 'absolute',
+                    top: position.y + 'px',
+                    left: position.x + 'px'
+                }
             }
         },
     })

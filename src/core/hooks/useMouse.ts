@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 // 鼠标事件类型，调用 hook 时，只可以监听这些事件
 type MouseEventNamesType = 'mouseup' | 'mousedown' | 'mousemove'
@@ -17,8 +17,12 @@ export interface IUseMouseAttr {
 }
 
 export default function useMouse(attr: IUseMouseAttr): IReturn {
+    const isDelay = useRef<undefined | number>()
+    let cacheTimer: null | NodeJS.Timeout = null
 
-    const { mouseEventName, bindDom } = attr;
+    const { mouseEventName, bindDom, delayTime } = attr;
+
+    isDelay.current = delayTime
 
     const [scopedState, setScopedState] = useState<IReturn>({
         x: 0,
@@ -27,13 +31,28 @@ export default function useMouse(attr: IUseMouseAttr): IReturn {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     function mouseHandle (event: MouseEvent) {
-        setScopedState({
-            x: event.clientX,
-            y: event.clientY,
-            // 需要注意 dom2 冒泡阶段 currentTarget 和 target 不一致，currentTarget 为 祖先元素，target 为 目标元素，所以只需要比较 target
-            // todo 第一次点击时 bindDom 为 undefined 所以第一次点击恒为 false
-            _isSelf: event.target === bindDom
-        })
+        if(cacheTimer) return;
+        if(isDelay.current) {
+            cacheTimer = setTimeout(() => {
+                setScopedState({
+                    x: event.clientX,
+                    y: event.clientY,
+                    // 需要注意 dom2 冒泡阶段 currentTarget 和 target 不一致，currentTarget 为 祖先元素，target 为 目标元素，所以只需要比较 target
+                    // todo 第一次点击时 bindDom 为 undefined 所以第一次点击恒为 false
+                    _isSelf: event.target === bindDom
+                })
+                cacheTimer = null // 清空
+            }, delayTime)
+        } else {
+            setScopedState({
+                x: event.clientX,
+                y: event.clientY,
+                // 需要注意 dom2 冒泡阶段 currentTarget 和 target 不一致，currentTarget 为 祖先元素，target 为 目标元素，所以只需要比较 target
+                // todo 第一次点击时 bindDom 为 undefined 所以第一次点击恒为 false
+                _isSelf: event.target === bindDom
+            })
+        }
+
     }
 
     useEffect(() => {

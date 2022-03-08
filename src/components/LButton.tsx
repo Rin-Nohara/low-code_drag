@@ -15,7 +15,7 @@ const LButton: React.FC = () => {
     });
 
     return <>
-        <button ref={dragRef as LegacyRef<HTMLButtonElement>} draggable={true} data-componentData={LButtonJSON}>test button</button>
+        <button ref={dragRef as LegacyRef<HTMLButtonElement>} draggable={true}>test button</button>
     </>
 }
 

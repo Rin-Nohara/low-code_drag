@@ -8,12 +8,13 @@ export interface IProps {
 export default function vdomToDom (elementJson: IProps): HTMLElement {
 
     const { componentJson } = elementJson;
+    const { props, type } = componentJson;
 
-    const element =  document.createElement(componentJson.type as string)
+    const element =  document.createElement(type as string)
 
-    for (let i in componentJson.style) {
+    for (let i in props.style) {
         // @ts-ignore
-        element.style[i] = componentJson.style[i]
+        element.style[i] = props.style[i]
     }
 
     // todo 动态
