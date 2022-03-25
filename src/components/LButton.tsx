@@ -1,4 +1,5 @@
 import React, { useRef, LegacyRef } from 'react';
+import ComponentWrapper from './componentWrapper';
 import {useDrag} from "ahooks";
 
 const LButton: React.FC = () => {
@@ -15,7 +16,9 @@ const LButton: React.FC = () => {
     });
 
     return <>
-        <button ref={dragRef as LegacyRef<HTMLButtonElement>} draggable={true} data-componentData={LButtonJSON}>test button</button>
+        <ComponentWrapper imgPath={'asd'}>
+            <button ref={dragRef as LegacyRef<HTMLButtonElement>} draggable={true} data-componentData={LButtonJSON}>test button</button>
+        </ComponentWrapper>
     </>
 }
 

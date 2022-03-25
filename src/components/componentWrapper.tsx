@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {ReactElement, ReactNode, useEffect, useMemo} from 'react';
 
 interface IProps {
     imgPath: string;
+    children: ReactElement | ReactNode
 }
 
 /**
@@ -10,12 +11,22 @@ interface IProps {
  * @param props
  * @constructor
  */
-function ComponentWrapper (props: IProps) {
+const ComponentWrapper: React.FC<IProps> = (props) => {
 
-    const { imgPath } = props;
+    // todo 支持点击后出现特殊效果
 
-    return <div>
-    {/* 封面 */}
+    const { imgPath, children } = props;
+
+    function clickHandle (): void {
+
+    }
+
+    useEffect(() => {
+        console.log(children)
+    }, [])
+
+    return <div onClick={clickHandle}>
+        {children}
     </div>;
 }
 

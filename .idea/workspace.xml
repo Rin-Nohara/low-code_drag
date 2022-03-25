@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e4caec74-f1f1-4485-af57-f19644f48439" name="Changes" comment="feat: 布局">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/utlis/canvasAppend.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/utlis/canvasAppend.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/utlis/vdomToDom.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/utlis/vdomToDom.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/componentWrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/componentWrapper.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/style/componentWrapper.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/style/componentWrapper.module.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
